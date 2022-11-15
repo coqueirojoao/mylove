@@ -6,13 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from "framer-motion"
 
 export default function Accept() {
-    const [musicOn, setMusicOn] = useState(false);
-    useEffect(() => {
-        setMusicOn(true);
-    }, [])
-    const music = new Audio(ceuazul);
-    musicOn ? music.volume = 0.5 : null
-    musicOn ? music.play() : null
+    const playMusic = () => {
+      const music = new Audio(ceuazul);
+      music.volume = 0.5
+      music.play()
+    }
   return (
     <div className='bg-slate-900 h-screen w-screen flex flex-col items-center'>
         <motion.div
@@ -22,7 +20,7 @@ export default function Accept() {
         <h1 className='text-xl text-white text-center py-10'>Vou te amar por toda <strong className='text-red-600'>minha vida!</strong></h1>
         <img src={pic2} className='w-80 relative rounded-md shadow-md shadow-black' />
         <div className='flex justify-center'>
-        <FontAwesomeIcon icon={faHeart} className="mt-8 text-7xl text-red-700 drop-shadow-xl shadow-black" />
+        <FontAwesomeIcon icon={faHeart} className="cursor-pointer mt-8 text-7xl text-red-700 drop-shadow-xl shadow-black" onClick={playMusic} />
         </div>
         </motion.div>
     </div>
